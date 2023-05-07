@@ -141,23 +141,14 @@ const NavbarBookmarks = props => {
 
   return (
     <Fragment>
-      <ul className='navbar-nav d-xl-none'>
-        <NavItem className='mobile-menu me-auto'>
-          <NavLink className='nav-menu-main menu-toggle hidden-xs is-active' onClick={() => setMenuVisibility(true)}>
-            <Icon.Menu className='ficon' />
-          </NavLink>
-        </NavItem>
-      </ul>
+      
       <ul className='nav navbar-nav bookmark-icons align-items-center'>
-        {renderBookmarks()}
         {renderExtraBookmarksDropdown()}
         <NavItem className='nav-item d-none d-lg-block'>
-          <NavLink className='bookmark-star' onClick={handleBookmarkVisibility}>
-            <Icon.Star className='ficon text-warning' />
-          </NavLink>
+         
           <div className={classnames('bookmark-input search-input', { show: openSearch })}>
             <div className='bookmark-input-icon'>
-              <Icon.Search size={14} />
+             
             </div>
             {openSearch && store.suggestions.length ? (
               <Autocomplete

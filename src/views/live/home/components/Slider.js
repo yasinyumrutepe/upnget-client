@@ -50,35 +50,23 @@ import '@styles/react/libs/swiper/swiper.scss'
 // ** Init Swiper Functions
 SwiperCore.use([Navigation, Grid, Pagination, EffectFade, EffectCube, EffectCoverflow, Autoplay, Lazy, Virtual])
 
-const Slider = () => {
+const Slider = (props) => {
   // ** Hooks
   const [isRtl] = useRTL()
-
   return (
     <Fragment>
     
       <Row>
         <Col sm='12'>
         <Swiper dir={isRtl ? 'rtl' : 'ltr'} {...params}>
-          <SwiperSlide>
-            <img src={img1} alt='swiper 1' className='img-fluid' />
+          {props.advertising.map((item, index) => {
+          <SwiperSlide key={index}>
+            <img src={item.img} alt='swiper 1' className='img-fluid' />
           </SwiperSlide>
-          <SwiperSlide>
-            <img src={img2} alt='swiper 2' className='img-fluid' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={img3} alt='swiper 3' className='img-fluid' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={img4} alt='swiper 4' className='img-fluid' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={img5} alt='swiper 5' className='img-fluid' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={img6} alt='swiper 6' className='img-fluid' />
-          </SwiperSlide>
-        </Swiper>
+         
+        })}
+       </Swiper>
+
         </Col>
       </Row>
     </Fragment>

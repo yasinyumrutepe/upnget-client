@@ -4,7 +4,7 @@ import { lazy } from 'react'
 const Login = lazy(() => import('../../views/pages/authentication/Login'))
 const LoginBasic = lazy(() => import('../../views/pages/authentication/LoginBasic'))
 const LoginCover = lazy(() => import('../../views/pages/authentication/LoginCover'))
-
+const LiveLogin = lazy(() => import('../../views/live/login'))
 const Register = lazy(() => import('../../views/pages/authentication/Register'))
 const RegisterBasic = lazy(() => import('../../views/pages/authentication/RegisterBasic'))
 const RegisterCover = lazy(() => import('../../views/pages/authentication/RegisterCover'))

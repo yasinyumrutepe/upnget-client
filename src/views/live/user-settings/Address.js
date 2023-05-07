@@ -26,7 +26,7 @@ const defaultValues = {
   billingEmail: ''
 }
 
-const BillingAddress = () => {
+const Address = () => {
   // ** Hooks
   const {
     control,
@@ -52,7 +52,7 @@ const BillingAddress = () => {
   return (
     <Card>
       <CardHeader className='border-bottom'>
-        <CardTitle tag='h4'>Billing Address</CardTitle>
+        <CardTitle tag='h4'>Address</CardTitle>
       </CardHeader>
       <CardBody className='my-2 py-50'>
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -160,4 +160,4 @@ const BillingAddress = () => {
   )
 }
 
-export default BillingAddress
+export default Address

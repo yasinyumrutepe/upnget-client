@@ -1,18 +1,18 @@
 // Logo Import
-import logo from '@src/assets/images/logo/logo.svg'
+import logo from '@src/assets/images/logo/upnget.png'
 
 // You can customize the template with the help of this file
 
 //Template config options
 const themeConfig = {
   app: {
-    appName: 'Upnget',
+   
     appLogoImage: logo
   },
   layout: {
     isRTL: false,
     skin: 'dark', // light, dark, bordered, semi-dark
-    type: 'vertical', // vertical, horizontal
+    type: 'horizontal', // vertical, horizontal
     contentWidth: 'boxed', // full, boxed
     menu: {
       isHidden: false,

@@ -12,8 +12,14 @@ import { addToCart, getProducts, getCartItems, addToWishlist, deleteCartItem, de
 
 // ** Styles
 import '@styles/react/apps/app-ecommerce.scss';
+import { useParams } from 'react-router-dom';
+import { getProductByCategory } from '../features/api';
 
 const Shop = () => {
+
+// 
+const {category} = useParams()
+console.log(category)
   // ** States
   const [activeView, setActiveView] = useState('grid')
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -25,12 +31,9 @@ const Shop = () => {
   // ** Get products
   useEffect(() => {
     dispatch(
-      getProducts({
-        q: '',
-        sortBy: 'featured',
-        perPage: 9,
-        page: 1
-      })
+      getProductByCategory(
+        category
+      )
     )
   }, [dispatch])
 
@@ -41,7 +44,7 @@ const Shop = () => {
         dispatch={dispatch}
         addToCart={addToCart}
         activeView={activeView}
-        getProducts={getProducts}
+        getProductByCategory={getProductByCategory}
         sidebarOpen={sidebarOpen}
         getCartItems={getCartItems}
         setActiveView={setActiveView}

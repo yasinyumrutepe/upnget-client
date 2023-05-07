@@ -1,63 +1,24 @@
-// ** Third Party Components
-import Cleave from 'cleave.js/react'
+// ** React Imports
+import { Fragment } from 'react'
 
 // ** Reactstrap Imports
-import { Card, CardHeader, CardTitle, CardBody, Form, Label, Input, Button, Row, Col } from 'reactstrap'
+import { Row, Col } from 'reactstrap'
 
-const CardPayment = () => {
+// ** Demo Components
+import WizardHorizontal from './WizardHorizontal'
+
+// ** Custom Components
+
+const Wizard = () => {
   return (
-    <Card className='card-payment'>
-      <CardHeader>
-        <CardTitle tag='h4'>Pay Amount</CardTitle>
-        <CardTitle className='text-primary' tag='h4'>
-         <Input placeholder='Payment Amount'/>
-        </CardTitle>
-      </CardHeader>
-      <CardBody>
-        <Form className='form' onSubmit={e => e.preventDefault()}>
-          <Row>
-            <Col sm='12' className='mb-2'>
-              <Label className='form-label' for='payment-card-number'>
-                Card Number
-              </Label>
-              <Cleave
-                className='form-control'
-                placeholder='2133 3244 4567 8921'
-                options={{ creditCard: true }}
-                id='payment-card-number'
-              />
-            </Col>
-            <Col sm='6' className='mb-2'>
-              <Label className='form-label' for='payment-expiry'>
-                Expiry
-              </Label>
-              <Cleave
-                className='form-control'
-                placeholder='MM / YY'
-                options={{ date: true, delimiter: '/', datePattern: ['Y', 'm'] }}
-                id='payment-expiry'
-              />
-            </Col>
-            <Col sm='6' className='mb-2'>
-              <Label className='form-label' for='payment-cvv'>
-                CVV / CVC
-              </Label>
-              <Input type='number' placeholder='123' id='payment-cvv' />
-            </Col>
-            <Col sm='12' className='mb-2'>
-              <Label className='form-label' for='payment-card-holder-name'>
-              Card Holder Name
-              </Label>
-              <Input placeholder='Yasin Yumrutepe' id='payment-card-holder-name' />
-            </Col>
-            <Col className='d-grid' sm='12'>
-              <Button color='primary'>Make Payment</Button>
-            </Col>
-          </Row>
-        </Form>
-      </CardBody>
-    </Card>
+    <Fragment>
+      <Row>
+        <Col sm='12'>
+          <WizardHorizontal />
+        </Col>
+       
+      </Row>
+    </Fragment>
   )
 }
-
-export default CardPayment
+export default Wizard

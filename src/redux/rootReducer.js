@@ -2,6 +2,10 @@
 import navbar from './navbar'
 import layout from './layout'
 import auth from './authentication'
+//LİVE
+import home from '@src/views/live/home/features'
+import product from '@src/views/live/ecommerce/features'
+// LİVE END
 import todo from '@src/views/apps/todo/store'
 import chat from '@src/views/apps/chat/store'
 import users from '@src/views/apps/user/store'
@@ -14,6 +18,8 @@ import dataTables from '@src/views/tables/data-tables/store'
 import permissions from '@src/views/apps/roles-permissions/store'
 
 const rootReducer = {
+  home,
+  product,
   auth,
   todo,
   chat,

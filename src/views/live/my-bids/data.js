@@ -299,37 +299,37 @@ export const multiLingColumns = [
 export const serverSideColumns = [
   {
     sortable: true,
-    name: 'Full Name',
+    name: 'Product Name',
     minWidth: '225px',
     selector: row => row.full_name
   },
   {
     sortable: true,
-    name: 'Email',
-    minWidth: '250px',
-    selector: row => row.email
-  },
-  {
-    sortable: true,
-    name: 'Position',
-    minWidth: '250px',
-    selector: row => row.post
-  },
-  {
-    sortable: true,
-    name: 'Office',
-    minWidth: '150px',
-    selector: row => row.city
-  },
-  {
-    sortable: true,
-    name: 'Start Date',
-    minWidth: '150px',
+    name: 'End Date',
+    minWidth: '120px',
     selector: row => row.start_date
   },
   {
     sortable: true,
-    name: 'Salary',
+    name: 'My Bid',
+    minWidth: '150px',
+    selector: row => row.salary
+  },
+  {
+    sortable: true,
+    name: 'Last Bid',
+    minWidth: '150px',
+    selector: row => row.salary
+  },
+  {
+    sortable: true,
+    name: 'Status',
+    minWidth: '150px',
+    selector: row => row.salary
+  },
+  {
+    sortable: true,
+    name: 'Status',
     minWidth: '150px',
     selector: row => row.salary
   }

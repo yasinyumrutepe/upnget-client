@@ -58,7 +58,7 @@ const ProductCards = props => {
               <div className='item-wrapper'>
                
                 <div className='item-cost'>
-                  <h6 className='item-price'>${item.price}</h6>
+                  <h6 className='item-price'>Last Price ${item.price}</h6>
                 </div>
               </div>
               <h6 className='item-name'>
@@ -92,8 +92,9 @@ const ProductCards = props => {
                 className='btn-cart move-cart'
                
               >
-                <ShoppingCart className='me-50' size={14} />
-                <span>{item.isInCart ? 'View In Cart' : 'Add To Cart'}</span>
+                 <Link to={`/live/product/detail/${item.slug}`}>
+                <span>Give offer</span>
+                </Link>
               </Button>
             </div>
           </Card>

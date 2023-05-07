@@ -114,34 +114,7 @@ const PaymentMethods = () => {
           <Row className='gx-4'>
             <Col lg='6'>
               <Row tag={Form} className='gx-2 gy-1' onSubmit={handleSubmit(onSubmit)}>
-                <Col xs={12}>
-                  <div className='form-check mb-1'>
-                    <Input
-                      type='radio'
-                      value='card'
-                      id='card-radio'
-                      name='payment-method-radio'
-                      checked={paymentMethod === 'card'}
-                      onChange={() => setPaymentMethod('card')}
-                    />
-                    <Label className='form-check-label' for='card-radio'>
-                      Credit/Debit/ATM Card
-                    </Label>
-                  </div>
-                  <div className='form-check mb-1'>
-                    <Input
-                      type='radio'
-                      value='paypal'
-                      id='paypal-radio'
-                      name='payment-method-radio'
-                      checked={paymentMethod === 'paypal'}
-                      onChange={() => setPaymentMethod('paypal')}
-                    />
-                    <Label className='form-check-label' for='paypal-radio'>
-                      PayPal account
-                    </Label>
-                  </div>
-                </Col>
+          
                 {paymentMethod === 'card' && (
                   <Fragment>
                     <Col xs={12}>

@@ -20,7 +20,7 @@ const LiveRoutes = [
     element: <Home />
   },
   {
-    path: '/live/products',
+    path: '/live/products/:category',
     element: <Products />,
     meta: {
       className: 'ecommerce-application'

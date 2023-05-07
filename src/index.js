@@ -2,7 +2,6 @@
 import { Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-
 // ** Redux Imports
 import { store } from './redux/store'
 import { Provider } from 'react-redux'
@@ -51,6 +50,10 @@ import * as serviceWorker from './serviceWorker'
 
 // ** Lazy load app
 const LazyApp = lazy(() => import('./App'))
+
+
+
+
 
 const container = document.getElementById('root')
 const root = createRoot(container)
