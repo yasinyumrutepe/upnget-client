@@ -31,18 +31,18 @@ const UserDropdown = () => {
   //** ComponentDidMount
   useEffect(() => {
     if (isUserLoggedIn() !== null) {
-      setUserData(JSON.parse(localStorage.getItem('userData')))
+      // setUserData(JSON.parse(localStorage.getItem('userData')))
     }
   }, [])
 
   //** Vars
-  const userAvatar = (userData && userData.avatar) || defaultAvatar
+  const userAvatar = defaultAvatar
 
   return (
     <UncontrolledDropdown tag='li' className='dropdown-user nav-item'>
       <DropdownToggle href='/' tag='a' className='nav-link dropdown-user-link' onClick={e => e.preventDefault()}>
         <div className='user-nav d-sm-flex d-none'>
-          <span className='user-name fw-bold'>{(userData && userData['username']) || 'Yasin YT'}</span>
+          <span className='user-name fw-bold'>{ 'Yasin YT'}</span>
         </div>
         <Avatar img={userAvatar} imgHeight='40' imgWidth='40' status='online' />
       </DropdownToggle>
@@ -50,6 +50,10 @@ const UserDropdown = () => {
         <DropdownItem tag={Link} to='/live/user/settings'>
           <User size={14} className='me-75' />
           <span className='align-middle'>Profile Settings</span>
+        </DropdownItem>
+        <DropdownItem tag={Link} to='/live/my-products'>
+          <User size={14} className='me-75' />
+          <span className='align-middle'>My Products</span>
         </DropdownItem>
         <DropdownItem tag={Link} to='/live/my-bids'>
           <User size={14} className='me-75' />
@@ -59,11 +63,11 @@ const UserDropdown = () => {
           <User size={14} className='me-75' />
           <span className='align-middle'>Add Product</span>
         </DropdownItem>
-        <DropdownItem tag={Link} to='/login' onClick={() => dispatch(handleLogout())}>
+        <DropdownItem tag={Link} to='/live/login' onClick={() => dispatch(handleLogout())}>
           <Power size={14} className='me-75' />
           <span className='align-middle'>Logout</span>
         </DropdownItem>
-      <DropdownItem divider />
+      {/* <DropdownItem divider />
         <DropdownItem tag={Link} to='/pages/profile'>
           <User size={14} className='me-75' />
           <span className='align-middle'>Profile</span>
@@ -96,7 +100,7 @@ const UserDropdown = () => {
         <DropdownItem tag={Link} to='/login' onClick={() => dispatch(handleLogout())}>
           <Power size={14} className='me-75' />
           <span className='align-middle'>Logout</span>
-        </DropdownItem>
+        </DropdownItem> */}
       </DropdownMenu>
     </UncontrolledDropdown>
   )

@@ -17,7 +17,7 @@ import { getUserData, getHomeRouteForLoggedInUser } from '../utility/Utils'
 import { getRoutes } from './routes'
 
 // ** Components
-const Error = lazy(() => import('../views/pages/misc/Error'))
+const Error = lazy(() => import('../views/live/errors/Error404'))
 const Login = lazy(() => import('../views/pages/authentication/Login'))
 const NotAuthorized = lazy(() => import('../views/pages/misc/NotAuthorized'))
 
@@ -29,7 +29,8 @@ const Router = () => {
   const getHomeRoute = () => {
     const user = getUserData()
     if (user) {
-      return getHomeRouteForLoggedInUser(user.role)
+    return getHomeRouteForLoggedInUser("admin")
+      
     } else {
       return '/login'
     }

@@ -22,17 +22,18 @@ const ProductsStartingToday = (props) => {
 </CardTitle>
 <Swiper {...params}>
           {props.products_start_today.map((item, index) => {
+            return (
         <SwiperSlide key={index}>
           <Card className='ecommerce-card'>
-          <Link to={`/apps/ecommerce/product-detail/`}>
+          <Link to={`/apps/ecommerce/product-detail/${item.id}`}>
             <div className='item-img text-center mx-auto'>
-                <img className='img-fluid card-img-top' src='/src/assets/images/pages/eCommerce/2.png'  />
+                <img className='img-fluid card-img-top' src={"http://localhost:8000"+item.files[0]['URL']}  />
             </div>
             <CardBody>
               <h6 className='item-name text-center'>
-                <Link className='text-body ' to={`/apps/ecommerce/product-detail/`}>
+              
               {item.name}
-                </Link>
+               
               </h6>
             </CardBody>
             <div className='item-options text-center'>
@@ -45,6 +46,7 @@ const ProductsStartingToday = (props) => {
             </Link>
           </Card>
           </SwiperSlide>
+          )
           })}
          
           

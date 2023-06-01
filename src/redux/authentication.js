@@ -8,6 +8,8 @@ const config = useJwt.jwtConfig
 
 const initialUser = () => {
   const item = window.localStorage.getItem('userData')
+
+  console.log('initialUser', item)
   //** Parse stored json or if none return initialValue
   return item ? JSON.parse(item) : {}
 }

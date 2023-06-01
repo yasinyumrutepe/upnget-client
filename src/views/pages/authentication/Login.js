@@ -16,7 +16,7 @@ import { Facebook, Twitter, Mail, GitHub, HelpCircle, Coffee, X } from 'react-fe
 import { handleLogin } from '@store/authentication'
 
 // ** Context
-import { AbilityContext } from '@src/utility/context/Can'
+// import { AbilityContext } from '@src/utility/context/Can'
 
 // ** Custom Components
 import Avatar from '@components/avatar'
@@ -65,8 +65,8 @@ const ToastContent = ({ t, name, role }) => {
 }
 
 const defaultValues = {
-  password: 'admin',
-  loginEmail: 'admin@demo.com'
+  password: '12345',
+  loginEmail: 'info@auction.com'
 }
 
 const Login = () => {
@@ -74,7 +74,7 @@ const Login = () => {
   const { skin } = useSkin()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const ability = useContext(AbilityContext)
+  // const ability = useContext(AbilityContext)
   const {
     control,
     setError,
@@ -85,16 +85,20 @@ const Login = () => {
   const source = skin === 'dark' ? illustrationsDark : illustrationsLight
 
   const onSubmit = data => {
+
+
     if (Object.values(data).every(field => field.length > 0)) {
+      // navigate(getHomeRouteForLoggedInUser('admin'))a
+
       useJwt
         .login({ email: data.loginEmail, password: data.password })
         .then(res => {
-          const data = { ...res.data.userData, accessToken: res.data.accessToken, refreshToken: res.data.refreshToken }
+          const data = { ...res.data.body.userData, accessToken: res.data.body.token, refreshToken: res.data.body.token }
           dispatch(handleLogin(data))
-          ability.update(res.data.userData.ability)
-          navigate(getHomeRouteForLoggedInUser(data.role))
+          // ability.update(res.data.userData.ability)
+          navigate(getHomeRouteForLoggedInUser("admin"))
           toast(t => (
-            <ToastContent t={t} role={data.role || 'admin'} name={data.fullName || data.username || 'John Doe'} />
+            <ToastContent t={t} role={data.role || 'admin'} name={data.fullName || data.username || 'Yasin Yumrutepe'} />
           ))
         })
         .catch(err => setError('loginEmail', {

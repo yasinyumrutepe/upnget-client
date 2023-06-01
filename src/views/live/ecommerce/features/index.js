@@ -1,25 +1,25 @@
 // ** Redux Imports
 import { createSlice } from '@reduxjs/toolkit'
-import { getProductByCategory } from './api'
+import { getProduct, getProductByCategory } from './api'
 export const productSlice = createSlice({
     name: 'product',
     initialState: {
-      products_finished_today: [],
-      products_start_today: [],
-      brands: [],
-      advertising: [],
+      products: [],
+      productDetail: {},
+      message:''
+    
      
     },
     reducers: {},
     extraReducers: {
       [getProductByCategory.fulfilled]: (state, action) => {
-          state.products_finished_today = action.payload.data.products_finished_today
-          state.products_start_today = action.payload.data.products_start_today
-          state.brands = action.payload.data.brands
-          state.advertising = action.payload.data.advertising
+          state.products = action.payload.data
+          state.message = action.payload.message
+         
           },
-      [getProductByCategory.rejected]: (state, action) => {
-          console.log(action)
+      [getProduct.fulfilled]: (state, action) => {
+        console.log(action.payload)
+        state.productDetail = action.payload.data
       }
   }
   })

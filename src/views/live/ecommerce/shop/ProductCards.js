@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 // ** Third Party Components
 import classnames from 'classnames'
-import { Star, ShoppingCart, Heart } from 'react-feather'
 
 // ** Reactstrap Imports
 import { Card, CardBody, CardText, Button, Badge } from 'reactstrap'
@@ -11,47 +10,22 @@ import { Card, CardBody, CardText, Button, Badge } from 'reactstrap'
 const ProductCards = props => {
   // ** Props
   const {
-    store,
     products,
-    dispatch,
-    addToCart,
     activeView,
-    getProducts,
-    getCartItems,
-    addToWishlist,
-    deleteWishlistItem
   } = props
 
-  // ** Handle Move/Add to cart
-  const handleCartBtn = (id, val) => {
-    if (val === false) {
-      dispatch(addToCart(id))
-    }
-    dispatch(getCartItems())
-    dispatch(getProducts(store.params))
-  }
-
-  // ** Handle Wishlist item toggle
-  const handleWishlistClick = (id, val) => {
-    if (val) {
-      dispatch(deleteWishlistItem(id))
-    } else {
-      dispatch(addToWishlist(id))
-    }
-    dispatch(getProducts(store.params))
-  }
 
   // ** Renders products
   const renderProducts = () => {
     if (products.length) {
-      return products.map(item => {
+      return products.map((item, index) => {
         const CartBtnTag = item.isInCart ? Link : 'button'
 
         return (
-          <Card className='ecommerce-card' key={item.name}>
+          <Card className='ecommerce-card' key={index}>
             <div className='item-img text-center mx-auto'>
-              <Link to={`/live/product/detail/${item.slug}`}>
-                <img className='img-fluid card-img-top' src={item.image} alt={item.name} />
+              <Link to={`/live/product/detail/${item.id}`}>
+                <img className='img-fluid card-img-top' src={'http://localhost:8000'+item.files[0].URL} alt={item.name} />
               </Link>
             </div>
             <CardBody>
@@ -62,38 +36,25 @@ const ProductCards = props => {
                 </div>
               </div>
               <h6 className='item-name'>
-                <Link className='text-body' to={`/live/product/detail/${item.slug}`}>
+                <Link className='text-body' to={`/live/product/detail/${item.id}`}>
                   {item.name}
                 </Link>
                 <CardText tag='span' className='item-company'>
                   By{' '}
                   <a className='company-name' href='/' onClick={e => e.preventDefault()}>
-                    {item.brand}
+                    {item.brand.name}
                   </a>
                 </CardText>
               </h6>
               <CardText className='item-description'>{item.description}</CardText>
             </CardBody>
             <div className='item-options text-center'>
-              <div className='item-wrapper'>
-                <div className='item-cost'>
-                  <h4 className='item-price'>${item.price}</h4>
-                  {item.hasFreeShipping ? (
-                    <CardText className='shipping'>
-                      <Badge color='light-success'>Free Shipping</Badge>
-                    </CardText>
-                  ) : null}
-                </div>
-              </div>
-         
               <Button
                 color='primary'
-                tag={CartBtnTag}
                 className='btn-cart move-cart'
-               
               >
-                 <Link to={`/live/product/detail/${item.slug}`}>
-                <span>Give offer</span>
+                 <Link to={`/live/product/detail/${item.id}`}>
+                <span className='text-white'>Give offer</span>
                 </Link>
               </Button>
             </div>

@@ -16,8 +16,17 @@ export const getProductByCategory =(
 )
 )   
     
-   
+export const getProduct = (
+    createAsyncThunk(
+    'product/getProduct',
+    async (id) => {
+        const response = await axios.get(`http://localhost:8000/api/product/${id}`)
+        const data = await response.data
+        return data
+    }
 
+)
+)
 
 
 

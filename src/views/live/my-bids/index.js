@@ -16,7 +16,6 @@ import '@styles/react/libs/tables/react-dataTable-component.scss'
 const Tables = () => {
   return (
     <Fragment>
-      <Breadcrumbs title='Datatables Advance' data={[{ title: 'Datatables' }, { title: 'Datatables Advance' }]} />
       <Row>
         <Col sm='12'>
           <TableServerSide />

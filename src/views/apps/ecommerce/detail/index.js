@@ -8,7 +8,6 @@ import ProductDetails from './ProductDetails'
 import RelatedProducts from './RelatedProducts'
 
 // ** Custom Components
-import BreadCrumbs from '@components/breadcrumbs'
 
 // ** Reactstrap Imports
 import { Card, CardBody } from 'reactstrap'
@@ -35,7 +34,6 @@ const Details = () => {
 
   return (
     <Fragment>
-      <BreadCrumbs title='Product Details' data={[{ title: 'eCommerce' }, { title: 'Details' }]} />
       <div className='app-ecommerce-details'>
         {Object.keys(store.productDetail).length ? (
           <Card>

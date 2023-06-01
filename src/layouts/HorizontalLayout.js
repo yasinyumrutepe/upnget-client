@@ -7,9 +7,11 @@ import Layout from '@layouts/HorizontalLayout'
 
 // ** Menu Items Array
 import navigation from '@src/navigation/horizontal'
+import { useState } from 'react'
 
 const HorizontalLayout = props => {
-  // const [menuData, setMenuData] = useState([])
+
+
 
   // ** For ServerSide navigation
   // useEffect(() => {
