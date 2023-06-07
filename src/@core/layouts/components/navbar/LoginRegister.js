@@ -1,14 +1,10 @@
-// ** Dropdowns Imports
-import UserDropdown from "./UserDropdown";
-
-// ** Third Party Components
+import React from "react";
 import { Sun, Moon } from "react-feather";
+import { Link } from "react-router-dom";
 
 // ** Reactstrap Imports
-import { NavItem, NavLink } from "reactstrap";
-
-const NavbarUser = (props) => {
-  // ** Props
+import { Button, NavItem, NavLink } from "reactstrap";
+export default function LoginRegister(props) {
   const { skin, setSkin } = props;
 
   // ** Function to toggle Theme (Light/Dark)
@@ -28,10 +24,9 @@ const NavbarUser = (props) => {
         </NavLink>
       </NavItem>
 
-      {/* <CartDropdown />
-      <NotificationDropdown /> */}
-      <UserDropdown />
+      <Button color="info" className="ms-1 btn-sm text-white">
+        <Link to="/login">Login</Link>
+      </Button>
     </ul>
   );
-};
-export default NavbarUser;
+}

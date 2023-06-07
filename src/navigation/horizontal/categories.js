@@ -2,31 +2,28 @@
 
 export default [
   {
-    id: 'electronics',
-    title: 'Electronics',
-    navLink: '/live/products/electronics',
+    id: "electronics",
+    title: "Electronics",
+    navLink: "/live/products/electronics",
   },
   {
-    id: 'homeandliving',
-    title: 'Home & Living',
-    navLink: '/live/products/homeandliving',
+    id: "homeandliving",
+    title: "Home & Living",
+    navLink: "/live/products/home-living",
   },
   {
-    id: 'artandcollectibles',
-    title: 'Art & Collectibles',
-    navLink: '/live/products/artandcollectibles',
+    id: "artandcollectibles",
+    title: "Art & Collectibles",
+    navLink: "/live/products/art-collectibles",
   },
   {
-    id: 'jewlryandaccessories',
-    title: 'Jewlry & Accessories',
-    navLink: '/live/products/jewlryandaccessories',
+    id: "jewlryandaccessories",
+    title: "Jewlry & Accessories",
+    navLink: "/live/products/jewelry-accessories",
   },
   {
-    id: 'antique',
-    title: 'Antique',
-    navLink: '/live/products/antique',
+    id: "antiques-vintage",
+    title: "Antiques & Vintage",
+    navLink: "/live/products/antiques-vintage",
   },
-  
- 
-
-]
+];

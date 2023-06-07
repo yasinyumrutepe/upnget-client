@@ -102,10 +102,12 @@ export const canViewMenuGroup = item => {
   if (!(item.action && item.resource)) {
     return hasAnyVisibleChild
   }
+  return true
   return ability.can(item.action, item.resource) && hasAnyVisibleChild
 }
 
 export const canViewMenuItem = item => {
   const ability = useContext(AbilityContext)
+  return true
   return ability.can(item.action, item.resource)
 }

@@ -1,22 +1,33 @@
 // ** React Imports
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from "react";
 
+import NavbarUser from "./NavbarUser";
+import LoginRegister from "./LoginRegister";
 // ** Custom Components
-import NavbarUser from './NavbarUser'
-import NavbarBookmarks from './NavbarBookmarks'
 
-const ThemeNavbar = props => {
+const ThemeNavbar = (props) => {
   // ** Props
-  const { skin, setSkin, setMenuVisibility } = props
+  const { skin, setSkin, setMenuVisibility } = props;
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("userData")) {
+      setIsLogin(true);
+    }
+  }, []);
 
   return (
     <Fragment>
-      <div className='bookmark-wrapper d-flex align-items-center'>
+      <div className="bookmark-wrapper d-flex align-items-center">
         {/* <NavbarBookmarks setMenuVisibility={setMenuVisibility} /> */}
       </div>
-      <NavbarUser skin={skin} setSkin={setSkin} />
+      {isLogin ? (
+        <NavbarUser skin={skin} setSkin={setSkin} />
+      ) : (
+        <LoginRegister skin={skin} setSkin={setSkin} />
+      )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default ThemeNavbar
+export default ThemeNavbar;

@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 // ** Third Party Components
 import { Row, Col } from "reactstrap";
@@ -12,27 +12,34 @@ import "@styles/react/libs/tables/react-dataTable-component.scss";
 import axios from "axios";
 
 const Tables = () => {
-  const [bids, setBids] = useState([]);
+  const [products, setProducts] = useState([]);
   const seller = JSON.parse(localStorage.getItem("userData"));
   if (!seller) {
     window.location.href = "/login";
   }
+
   useEffect(() => {
     const seller_id = seller.userId;
-    const getBids = async () => {
+    const getProducts = async () => {
       await axios
-        .get("http://localhost:8000/api/bid/seller/" + seller_id)
+        .get("http://localhost:8000/api/product/seller/" + seller_id)
         .then((res) => {
-          console.log(res.data.data);
-          setBids(res.data.data);
+          setProducts(res.data.data.product);
+          console.log(res.data.data.product);
         });
     };
-    getBids();
+
+    getProducts();
+
+    console.log("Tables");
   }, []);
+
   return (
     <Fragment>
       <Row>
-        <Col sm="12">{bids.length && <TableServerSide data={bids} />}</Col>
+        <Col sm="12">
+          <TableServerSide data={products} />
+        </Col>
       </Row>
     </Fragment>
   );
